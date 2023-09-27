@@ -1,4 +1,4 @@
-# odin-rockpaperscissors
+# rockpaperscissors
 
 Try out my Pokémon themed rock paper scissors game here:
 https://axiomaticadi.github.io/odin-rockpaperscissors/
