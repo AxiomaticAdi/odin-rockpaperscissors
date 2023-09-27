@@ -7,32 +7,35 @@
 	<title>RPS Pokémon Battle!</title>
 </head>
 <body>
-	<h1>Choose your Pokémon!</h1>
-	<img id="arena" src="./images/arena.png" alt="Pokemon battle arena" width="100%" height="auto"/>
+	<h1 id="mainText">Choose your Pokémon!</h1>
+	<h2 id="subText">---</h2>
+	<div style="position: relative">
+		<img id="arena" src="./images/arena.png" alt="Pokemon battle arena" width="100%" height="auto"/>
+		<div id="arenaText"> </div>
+	</div>
+	
 	<div id="trainersBox">
 		<div class="playBox" id="playerContainer">
 			<h3>Player</h3>
 			<div id="buttonContainer">
-				<button onclick="game('rock')"><img class="rps" src="./images/rock.png" alt="Rock"></button>
-				<button onclick="game('paper')"><img class="rps" src="./images/paper.png" alt="Paper"></button>
-				<button onclick="game('scissors')"><img class="rps" src="./images/scissors.png" alt="Scissors"></button>
+				<button onclick="playerPick('Rock')"><img class="rps" src="./images/rock.png" alt="Rock"></button>
+				<button onclick="playerPick('Paper')"><img class="rps" src="./images/paper.png" alt="Paper"></button>
+				<button onclick="playerPick('Scissors')"><img class="rps" src="./images/scissors.png" alt="Scissors"></button>
 			</div>
 		</div>
 		<div class="playBox" id="computerContainer">
 			<h3>Gym Leader</h3>
 			<div id="buttonContainer">
-				<img class="rps compu" src="./images/rock.png" alt="Rock">
-				<img class="rps compu" src="./images/paper.png" alt="Paper">
-				<img class="rps compu" src="./images/scissors.png" alt="Scissors">
+				<img class="rps compu" id = "compuRock" src="./images/rock.png" alt="Rock">
+				<img class="rps compu" id = "compuPaper" src="./images/paper.png" alt="Paper">
+				<img class="rps compu" id= "compuScissors" src="./images/scissors.png" alt="Scissors">
 			</div>
 		</div>
 
 	</div>
 	
 
-	<script>
-
-	</script>
+	<script src="./gamelogic.js"></script>
 	
 </body>
 <footer>
