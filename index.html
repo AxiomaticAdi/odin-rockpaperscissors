@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8" />
-	<title>title</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<title>RPS Pokémon Battle!</title>
 </head>
 <body>
+	<h1>Choose your Pokémon!</h1>
+	<img id="arena" src="./images/arena.png" alt="Pokemon battle arena" width="100%" height="auto"/>
+	<div id="trainersBox">
+		<div class="playBox" id="playerContainer">
+			<h3>Player</h3>
+			<div id="buttonContainer">
+				<button onclick="game('rock')"><img class="rps" src="./images/rock.png" alt="Rock"></button>
+				<button onclick="game('paper')"><img class="rps" src="./images/paper.png" alt="Paper"></button>
+				<button onclick="game('scissors')"><img class="rps" src="./images/scissors.png" alt="Scissors"></button>
+			</div>
+		</div>
+		<div class="playBox" id="computerContainer">
+			<h3>Gym Leader</h3>
+			<div id="buttonContainer">
+				<img class="rps compu" src="./images/rock.png" alt="Rock">
+				<img class="rps compu" src="./images/paper.png" alt="Paper">
+				<img class="rps compu" src="./images/scissors.png" alt="Scissors">
+			</div>
+		</div>
+
+	</div>
+	
+
 	<script>
-		
+
 	</script>
 	
 </body>
+<footer>
+	<i>Pokemon images from <a href="https://bulbapedia.bulbagarden.net/">Bulbapedia</a></i>
+	<i>Battle arena image from <a href="https://www.reddit.com/user/MiscellaneaMaps/">u/MiscellaneaMaps</a></i>
+</footer>
 </html>

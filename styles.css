@@ -1,0 +1,69 @@
+header {
+	min-height: 10vh;
+	width: 100vw;
+}
+
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin:10px;
+}
+
+h1 {
+	font-size: 4em;
+	margin: 20px;
+	padding: none;
+	border: none;
+}
+
+h3 {
+	font-size: 2em;
+	color: white;
+	text-align: center;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.rps {
+    max-width: 200px;
+    max-height: 200px;
+    min-width: 50px;
+    min-height: 50px;
+    width: 100%;
+    height: auto;
+}
+
+.compu { 
+	/* Adds margin for non-button images to make equal sizing */
+	margin: 5px;
+}
+
+#arena {
+	height: 50vw;
+	width: auto;
+}
+
+#trainersBox {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.playBox {
+	margin: 15px;
+	border: 5px solid black;
+	background-color: gray;
+}
