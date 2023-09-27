@@ -1,7 +1,14 @@
-const mainText = document.getElementById("mainText");
-const secondText = document.getElementById("subText");
-const arenaText = document.getElementById("arenaText");
 const pokeChoices = ["Rock", "Paper", "Scissors"];
+const playerScoreArray = ["", "playerScore1", "playerScore2", "playerScore3"];
+const computerScoreArray = ["", "computerScore1", "computerScore2", "computerScore3"];
+
+const mainText = document.getElementById("mainText");
+const subText = document.getElementById("subText");
+const arenaText = document.getElementById("arenaText");
+
+const buttonContainer = document.getElementById("buttonContainer");
+const buttons = buttonContainer.getElementsByTagName("button");
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -11,12 +18,12 @@ function playerPick(playerChoice) {
 }
 
 function computerPick(playerChoice) {
-	// Pick a random number 0 to 2
+	// Computer picks a choice randomly
 	const randChoice = Math.floor(Math.random() * 3);
-
 	const computerChoice = pokeChoices[randChoice];
-	subText.innerHTML = `Computer picked ${computerChoice}`;
+	subText.innerHTML = `Gym leader picked ${computerChoice}`;
 
+	// Update battlefield
 	arenaText.innerHTML = pickWinner(playerChoice, computerChoice);
 	arenaText.style.backgroundColor = "antiquewhite";
 }
@@ -34,46 +41,44 @@ function computerPick(playerChoice) {
 function pickWinner(playerChoice, computerChoice) {
 	// Display choices
 	console.log(`Player picked: ${playerChoice}`);
-	console.log(`Computer picked: ${computerChoice}`);
+	console.log(`Gym leader picked: ${computerChoice}`);
 
 	if (playerChoice === computerChoice) {
 		return "Evenly matched!";
-	} else if (playerChoice === "rock" && computerChoice === "scissors") {
-		playerScore++;
+	} else if (playerChoice === "Rock" && computerChoice === "Scissors") {
+		playerScore += 1;
+		scoreUpdate("Player", playerScore);
 		return `${playerChoice} beats ${computerChoice}`;
 	} else if (pokeChoices.indexOf(playerChoice) > pokeChoices.indexOf(computerChoice)) {
-		playerScore++;
+		playerScore += 1;
+		scoreUpdate("Player", playerScore);
 		return `${playerChoice} beats ${computerChoice}`;
 	} else {
-		computerScore++;
+		computerScore += 1;
+		scoreUpdate("Gym leader", computerScore);
 		return `${computerChoice} beats ${playerChoice}`;
 	}
 }
 
-function game() {
-	console.log("Welcome to console Rock-Paper-Scissors!");
-	console.log("Compete against the computer in a best of 5 rounds");
+function scoreUpdate(target, score) {
+	console.log(`${target}, score: ${score}`);
 
-	for (let i = 0; i < 5; i++) {
-		console.log(pickWinner(getPlayerChoice(), getComputerChoice()));
-		console.log(`Current scores - player: ${playerScore}, computer: ${computerScore}`);
-		console.log();
+	if (score <= 3) {
+		if (target === "Player") {
+			document.getElementById(playerScoreArray[score]).style.visibility = "visible";
+		} else {
+			document.getElementById(computerScoreArray[score]).style.visibility = "visible";
+		}
 	}
 
-	// Final winner calc
-	console.log(`Final score: ${playerScore} to ${computerScore}`);
-	if (playerScore === computerScore) {
-		console.log("It's a tie!");
-		console.log();
-	} else if (playerScore > computerScore) {
-		console.log("You win!");
-		console.log();
-	} else {
-		console.log("You lose!");
-		console.log();
-	}
+	if (score >= 3) {
+		mainText.innerHTML = `Game over! ${target} wins!`;
+		subText.innerHTML = "Refresh page to play again";
 
-	// Reset scores
-	playerScore = 0;
-	computerScore = 0;
+		// Turn off all buttons
+		for (let i = 0; i < buttons.length; i++) {
+			buttons[i].disabled = true;
+		}
+		return;
+	}
 }

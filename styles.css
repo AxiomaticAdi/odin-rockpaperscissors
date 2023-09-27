@@ -1,5 +1,6 @@
 * {
 	color: white;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 header {
@@ -66,7 +67,7 @@ button {
 }
 
 #arena {
-	height: 50vw;
+	height: 45vw;
 	width: auto;
 }
 
@@ -81,6 +82,17 @@ button {
 	border: 5px solid black;
 	border-radius: 25px;
 	background-color: gray;
+}
+
+.scoreBox {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+}
+
+.scoreKeeper {
+	visibility: hidden;
 }
 
 #arenaText {
