@@ -28,16 +28,6 @@ function computerPick(playerChoice) {
 	arenaText.style.backgroundColor = "antiquewhite";
 }
 
-// Start game
-// game();
-
-// WHat do we want to happen when choices are made
-// Display choices on the field
-// Animation
-// Tie: message "evenly matched!"
-// Win / loss: HP bar goes to zero
-// Pokeballs counter: lose pokeball on loss
-
 function pickWinner(playerChoice, computerChoice) {
 	// Display choices
 	console.log(`Player picked: ${playerChoice}`);
@@ -49,6 +39,10 @@ function pickWinner(playerChoice, computerChoice) {
 		playerScore += 1;
 		scoreUpdate("Player", playerScore);
 		return `${playerChoice} beats ${computerChoice}`;
+	} else if (computerChoice === "Rock" && playerChoice === "Scissors") {
+		computerScore += 1;
+		scoreUpdate("Computer", playerScore);
+		return `${computerChoice} beats ${playerChoice}`;
 	} else if (pokeChoices.indexOf(playerChoice) > pokeChoices.indexOf(computerChoice)) {
 		playerScore += 1;
 		scoreUpdate("Player", playerScore);
