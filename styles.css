@@ -62,7 +62,7 @@ button {
 }
 
 #arena {
-	height: 30vw;
+	max-height: 45vh;
 	width: auto;
 }
 
