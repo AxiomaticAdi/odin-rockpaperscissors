@@ -1,6 +1,4 @@
 const pokeChoices = ["Rock", "Paper", "Scissors"];
-const playerScoreArray = ["", "playerScore1", "playerScore2", "playerScore3"];
-const computerScoreArray = ["", "computerScore1", "computerScore2", "computerScore3"];
 
 const mainText = document.getElementById("mainText");
 const subText = document.getElementById("subText");
@@ -41,7 +39,7 @@ function pickWinner(playerChoice, computerChoice) {
 		return `${playerChoice} beats ${computerChoice}`;
 	} else if (computerChoice === "Rock" && playerChoice === "Scissors") {
 		computerScore += 1;
-		scoreUpdate("Computer", playerScore);
+		scoreUpdate("Computer", computerScore);
 		return `${computerChoice} beats ${playerChoice}`;
 	} else if (pokeChoices.indexOf(playerChoice) > pokeChoices.indexOf(computerChoice)) {
 		playerScore += 1;
@@ -55,13 +53,13 @@ function pickWinner(playerChoice, computerChoice) {
 }
 
 function scoreUpdate(target, score) {
-	console.log(`${target}, score: ${score}`);
+	console.log(`Winner: ${target}, score: ${score}`);
 
 	if (score <= 3) {
 		if (target === "Player") {
-			document.getElementById(playerScoreArray[score]).style.visibility = "visible";
+			document.getElementById(`playerScore${score}`).style.visibility = "visible";
 		} else {
-			document.getElementById(computerScoreArray[score]).style.visibility = "visible";
+			document.getElementById(`computerScore${score}`).style.visibility = "visible";
 		}
 	}
 
